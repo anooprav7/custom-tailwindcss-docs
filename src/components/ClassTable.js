@@ -8,6 +8,8 @@ import dlv from "dlv";
 import clsx from "clsx";
 import { copyToClipboard } from "utils";
 
+let defConfig = {};
+
 let normalizeProperties = function (input) {
   if (typeof input !== "object") return input;
   if (Array.isArray(input)) return input.map(normalizeProperties);
@@ -40,7 +42,14 @@ function getUtilities(plugin) {
 
   const tailTheme = { ...defaultTheme, ...custom };
 
-  const defaultConfig = resolveConfig({ theme: tailTheme });
+  const defaultConfig = resolveConfig({
+    theme: tailTheme,
+    corePlugins: {
+      float: false
+    }
+  });
+
+  defConfig = defaultConfig;
 
   const utilities = {};
   plugin()({
@@ -98,31 +107,26 @@ function isObject(value) {
   return Object.prototype.toString.call(value) === "[object Object]";
 }
 
-// const preview =(x) => x;
-// const preview = false;
-// const defaultSort = (x) => x;
-// const filterProperties = (x) => x;
-// const transformValue = (x) => x;
-// const transformSelector = (x) =>
-//   x.length === 1 ? x : x.slice(1).replace(/\\/g, "");
-// const transformProperties = ({ properties }) => properties;
-
-// export const ClassTable = ({ plugin, id }) => {
 export const ClassTable = ({
-   plugin, 
-   id,
-   filterProperties,
-   preview,
-   sort = (x) => x,
-   transformSelector = (x) => (x.length === 1 ? x : x.slice(1).replace(/\\/g, '')),
-   transformProperties = ({ properties }) => properties,
-   transformValue,
-   custom,
-  }) => {
+  plugin,
+  id,
+  filterProperties,
+  preview,
+  sort = (x) => x,
+  transformSelector = (x) =>
+    x.length === 1 ? x : x.slice(1).replace(/\\/g, ""),
+  transformProperties = ({ properties }) => properties,
+  transformValue,
+  custom,
+  pluginKey
+}) => {
   const [message, setMessage] = useState("");
 
   const utilities = {};
   Object.assign(utilities, getUtilities(plugin));
+  console.log({
+    defConfig
+  });
 
   return (
     <div
@@ -132,6 +136,7 @@ export const ClassTable = ({
       <div level={2} id="class-reference" toc={true} className="relative">
         <span className="sr-only">Default class reference</span>
       </div>
+      <div>{`Plugin state ${defConfig?.corePlugins?.includes(pluginKey) ? "Enabled" : "Not Enabled"}`}</div>
       <div
         className={clsx(
           "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch shadow-2xl rounded-md",
@@ -190,7 +195,7 @@ export const ClassTable = ({
                     )}
                     onClick={() => {
                       const text = transformSelector(selector);
-                      console.log({text})
+                      console.log({ text });
                       copyToClipboard(text);
                       setMessage(`${text} copied to clipboard`);
                       setTimeout(() => {

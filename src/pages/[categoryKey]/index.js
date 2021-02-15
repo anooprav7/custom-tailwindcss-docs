@@ -18,7 +18,7 @@ const CategoryPage = () => {
     return (
       <>
         <h4 id={pluginKey} className="my-3">{pluginKey}</h4>
-        <ClassTable plugin={plugin} key={pluginKey} {...customProps}/>
+        <ClassTable plugin={plugin} key={pluginKey} pluginKey={pluginKey} {...customProps}/>
       </>
     );
   });
