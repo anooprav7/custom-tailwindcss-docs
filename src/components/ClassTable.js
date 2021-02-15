@@ -1,11 +1,12 @@
-import { memo } from "react";
-import _ from 'lodash';
+import { memo, useState } from "react";
+import _ from "lodash";
 // import plugin from "tailwindcss/lib/plugins/backgroundPosition";
 // import defaultTailwindConfig from "tailwindcss/stubs/defaultConfig.stub"
 import defaultTheme from "tailwindcss/defaultTheme";
 import resolveConfig from "tailwindcss/resolveConfig";
 import dlv from "dlv";
 import clsx from "clsx";
+import { copyToClipboard } from "utils";
 
 let normalizeProperties = function (input) {
   if (typeof input !== "object") return input;
@@ -25,14 +26,21 @@ function getUtilities(plugin) {
 
   const custom = {
     fontSize: {
-      lgg: ['1.77rem', { lineHeight: '1.77rem' }],
+      lgg: ["1.77rem", { lineHeight: "1.77rem" }]
+    },
+    spacing: {
+      1: "8px",
+      2: "12px",
+      3: "16px",
+      4: "24px",
+      5: "32px",
+      6: "48px"
     }
-  }
+  };
 
-const tailTheme = {...defaultTheme, ...custom };
+  const tailTheme = { ...defaultTheme, ...custom };
 
-// const defaultConfig = resolveConfig({ theme: defaultTheme });
-const defaultConfig = resolveConfig({ theme: tailTheme });
+  const defaultConfig = resolveConfig({ theme: tailTheme });
 
   const utilities = {};
   plugin()({
@@ -99,26 +107,33 @@ const transformSelector = (x) =>
   x.length === 1 ? x : x.slice(1).replace(/\\/g, "");
 const transformProperties = ({ properties }) => properties;
 
-export const ClassTable = ({plugin}) => {
+export const ClassTable = ({ plugin, id, ...restProps }) => {
+  const [message, setMessage] = useState("");
+
   const utilities = {};
   Object.assign(utilities, getUtilities(plugin));
 
   return (
-    <div className="border-b border-gray-200 overflow-hidden relative">
+    <div
+      className="border-b border-gray-200 overflow-hidden relative p-8 bg-gray-100"
+      id={id}
+    >
       <div level={2} id="class-reference" toc={true} className="relative">
         <span className="sr-only">Default class reference</span>
       </div>
       <div
         className={clsx(
-          "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch",
+          "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch shadow-2xl rounded-md",
           { "lg:max-h-sm": Object.keys(utilities).length > 12 }
         )}
       >
-        <table className="w-full text-left border-collapse">
-          <thead>
+        <table className="w-full text-left border-collapse shadow-md bg-white">
+          <thead className="bg-gray-300">
             <tr>
-              <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-                <div className="pb-2 pr-2 border-b border-gray-200">Class</div>
+              <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white">
+                <div className="pb-2 pr-2 border-b border-gray-200 px-4 py-2">
+                  Class
+                </div>
               </th>
               <th
                 className={clsx(
@@ -129,9 +144,12 @@ export const ClassTable = ({plugin}) => {
                 )}
               >
                 <div
-                  className={clsx("pb-2 pl-2 border-b border-gray-200", {
-                    "pr-2": preview
-                  })}
+                  className={clsx(
+                    "pb-2 pl-2 border-b border-gray-200 px-4 py-2",
+                    {
+                      "pr-2": preview
+                    }
+                  )}
                 >
                   Properties
                 </div>
@@ -154,11 +172,18 @@ export const ClassTable = ({plugin}) => {
                 <tr key={utility}>
                   <td
                     className={clsx(
-                      "py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap",
+                      "px-4 py-2 font-mono text-xs text-violet-600 whitespace-nowrap cursor-pointer hover:text-gray-600",
                       {
                         "border-t border-gray-200": i !== 0
                       }
                     )}
+                    onClick={() => {
+                      copyToClipboard(selector);
+                      setMessage(`${selector} copied to clipboard`);
+                      setTimeout(() => {
+                        setMessage("");
+                      }, 3000);
+                    }}
                   >
                     {transformSelector(selector)}
                   </td>
@@ -189,6 +214,13 @@ export const ClassTable = ({plugin}) => {
           </tbody>
         </table>
       </div>
+      {message && (
+        <div className="fixed bottom-0 inset-x-0 flex justify-center z-30">
+          <div className="bg-gray-500 text-white py-3 px-5 rounded-md w-80 mb-4">
+            {message}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,22 +1,25 @@
-import Head from 'next/head'
-import styles from 'styles/Home.module.css'
-import { ClassTable } from 'components/ClassTable'
+import Head from "next/head";
+import { ClassTable } from "components/ClassTable";
 import pluginBgPosition from "tailwindcss/lib/plugins/backgroundPosition";
 import pluginFontSize from "tailwindcss/lib/plugins/fontSize";
-import "tailwindcss/dist/tailwind.min.css"
+// import * as plugins from "tailwindcss/lib/plugins/index";
+import Layout from 'components/layout'
+import "tailwindcss/dist/tailwind.min.css";
 
 export default function Home() {
+  // console.log({
+  //   plugins
+  // })
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <title>Custom Tailwindcss Docs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <ClassTable plugin={pluginBgPosition}/>
-        <ClassTable plugin={pluginFontSize}/>
-        </main>
+      <main className="">
+        The hOME
+      </main>
     </div>
-  )
+  );
 }
