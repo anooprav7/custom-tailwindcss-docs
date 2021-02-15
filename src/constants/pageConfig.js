@@ -6,13 +6,15 @@ import pluginSpaceBetween from "tailwindcss/lib/plugins/space";
 import { CATEGORY_KEY_MAP } from "./constantMaps";
 import {spacing, KEY_SPACING} from './spacing'
 import {flexbox, KEY_FLEXBOX} from './flexbox'
+import {typography, KEY_TYPOGRAPHY} from './typography'
 
 export const pluginCategoryPages = {
   byCategory: {
     spacing,
-    flexbox
+    flexbox,
+    typography
   },
-  allCategories: [KEY_SPACING, KEY_FLEXBOX]
+  allCategories: [KEY_SPACING, KEY_FLEXBOX, KEY_TYPOGRAPHY]
 };
 
 export const pageConfig = {

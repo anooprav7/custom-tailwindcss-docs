@@ -44,7 +44,7 @@ const SideBar = () => {
   };
 
   return (
-    <aside className="w-52 mt-11 overflow-scroll">
+    <aside className="w-96 mt-11 overflow-scroll">
       <nav>
         <ul>{renderCategories()}</ul>
       </nav>

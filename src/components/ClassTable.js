@@ -99,15 +99,26 @@ function isObject(value) {
 }
 
 // const preview =(x) => x;
-const preview = false;
-const sort = (x) => x;
-const filterProperties = (x) => x;
-const transformValue = (x) => x;
-const transformSelector = (x) =>
-  x.length === 1 ? x : x.slice(1).replace(/\\/g, "");
-const transformProperties = ({ properties }) => properties;
+// const preview = false;
+// const defaultSort = (x) => x;
+// const filterProperties = (x) => x;
+// const transformValue = (x) => x;
+// const transformSelector = (x) =>
+//   x.length === 1 ? x : x.slice(1).replace(/\\/g, "");
+// const transformProperties = ({ properties }) => properties;
 
-export const ClassTable = ({ plugin, id, ...restProps }) => {
+// export const ClassTable = ({ plugin, id }) => {
+export const ClassTable = ({
+   plugin, 
+   id,
+   filterProperties,
+   preview,
+   sort = (x) => x,
+   transformSelector = (x) => (x.length === 1 ? x : x.slice(1).replace(/\\/g, '')),
+   transformProperties = ({ properties }) => properties,
+   transformValue,
+   custom,
+  }) => {
   const [message, setMessage] = useState("");
 
   const utilities = {};
@@ -115,7 +126,7 @@ export const ClassTable = ({ plugin, id, ...restProps }) => {
 
   return (
     <div
-      className="border-b border-gray-200 overflow-hidden relative p-8 bg-gray-100"
+      className="border-b border-gray-200 overflow-hidden relative p-8 bg-gray-100 rounded-md"
       id={id}
     >
       <div level={2} id="class-reference" toc={true} className="relative">
@@ -178,8 +189,10 @@ export const ClassTable = ({ plugin, id, ...restProps }) => {
                       }
                     )}
                     onClick={() => {
-                      copyToClipboard(selector);
-                      setMessage(`${selector} copied to clipboard`);
+                      const text = transformSelector(selector);
+                      console.log({text})
+                      copyToClipboard(text);
+                      setMessage(`${text} copied to clipboard`);
                       setTimeout(() => {
                         setMessage("");
                       }, 3000);
@@ -216,7 +229,7 @@ export const ClassTable = ({ plugin, id, ...restProps }) => {
       </div>
       {message && (
         <div className="fixed bottom-0 inset-x-0 flex justify-center z-30">
-          <div className="bg-gray-500 text-white py-3 px-5 rounded-md w-80 mb-4">
+          <div className="bg-gray-500 text-white py-3 px-5 rounded-md w-80 mb-4 text-center">
             {message}
           </div>
         </div>

@@ -3,13 +3,10 @@ import { ClassTable } from "components/ClassTable";
 import pluginBgPosition from "tailwindcss/lib/plugins/backgroundPosition";
 import pluginFontSize from "tailwindcss/lib/plugins/fontSize";
 // import * as plugins from "tailwindcss/lib/plugins/index";
-import Layout from 'components/layout'
+import Layout from "components/layout";
 import "tailwindcss/dist/tailwind.min.css";
 
 export default function Home() {
-  // console.log({
-  //   plugins
-  // })
   return (
     <div className="">
       <Head>
@@ -17,9 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="">
-        The hOME
-      </main>
+      <Layout>
+        <main className="">The hOME</main>
+      </Layout>
     </div>
   );
 }
