@@ -1,15 +1,16 @@
-import Head from "next/head";
-import { ClassTable } from "components/ClassTable";
-import pluginBgPosition from "tailwindcss/lib/plugins/backgroundPosition";
-import pluginFontSize from "tailwindcss/lib/plugins/fontSize";
-// import * as plugins from "tailwindcss/lib/plugins/index";
-import Layout from "components/layout";
+import { useContext } from "react";
+import { TailwindConfigContext } from "contexts";
 import "tailwindcss/dist/tailwind.min.css";
 
+
 export default function Home() {
+  const [tailwindConfig, ] = useContext(TailwindConfigContext);
   return (
     <div className="">
         <main className="">The hOME</main>
+        <pre>
+          {JSON.stringify(tailwindConfig, null, 2)}
+        </pre>
     </div>
   );
 }

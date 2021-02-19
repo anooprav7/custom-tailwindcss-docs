@@ -20,15 +20,19 @@ let normalizeProperties = function (input) {
   }, {});
 };
 
-function getUtilities(plugin, tailwindConfig) {
-  if (!plugin) return {};
-
-  const defaultConfig = resolveConfig({
+function generateDefaultConfig (tailwindConfig) {
+  return resolveConfig({
     corePlugins: {
       float: false
     },
     ...tailwindConfig
   });
+}
+
+function getUtilities(plugin, tailwindConfig) {
+  if (!plugin) return {};
+
+  const defaultConfig = generateDefaultConfig(tailwindConfig);
 
   const utilities = {};
   plugin()({
@@ -104,27 +108,28 @@ export const ClassTable = ({
   
   const utilities = {};
   Object.assign(utilities, getUtilities(plugin, tailwindConfig));
+  const finalConfig = generateDefaultConfig(tailwindConfig);
 
   return (
     <div
-      className="border-b border-gray-200 overflow-hidden relative p-8 bg-gray-100 rounded-md"
+      className="border-b border-gray-200 overflow-hidden relative p-8 rounded-md"
       id={id}
     >
       <div level={2} id="class-reference" toc={true} className="relative">
         <span className="sr-only">Default class reference</span>
       </div>
-      <div>{`Plugin state ${tailwindConfig?.corePlugins?.includes(pluginKey) ? "Enabled" : "Not Enabled"}`}</div>
+      <div>{`Plugin state ${finalConfig?.corePlugins?.includes(pluginKey) ? "Enabled" : "Not Enabled"}`}</div>
       <div
         className={clsx(
-          "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch shadow-2xl rounded-md",
+          "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch rounded-md border-2 border-gray-200",
           { "lg:max-h-sm": Object.keys(utilities).length > 12 }
         )}
       >
-        <table className="w-full text-left border-collapse shadow-md bg-white">
-          <thead className="bg-gray-300">
+        <table className="w-full text-left border-collapse bg-white border-gray-400">
+          <thead>
             <tr>
               <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white">
-                <div className="pb-2 pr-2 border-b border-gray-200 px-4 py-2">
+                <div className="pb-2 pr-2 border-b border-gray-200 px-4 py-2 bg-gray-100 m-0">
                   Class
                 </div>
               </th>
@@ -138,7 +143,7 @@ export const ClassTable = ({
               >
                 <div
                   className={clsx(
-                    "pb-2 pl-2 border-b border-gray-200 px-4 py-2",
+                    "pb-2 pl-2 border-b border-gray-200 px-4 py-2 bg-gray-100",
                     {
                       "pr-2": preview
                     }
@@ -165,7 +170,7 @@ export const ClassTable = ({
                 <tr key={utility}>
                   <td
                     className={clsx(
-                      "px-4 py-2 font-mono text-xs text-violet-600 whitespace-nowrap cursor-pointer hover:text-gray-600",
+                      "px-4 py-2 font-mono text-xs text-violet-600 whitespace-nowrap cursor-pointer hover:bg-gray-200",
                       {
                         "border-t border-gray-200": i !== 0
                       }

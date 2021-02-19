@@ -4,7 +4,7 @@ import pluginSpaceBetween from "tailwindcss/lib/plugins/space";
 
 export const KEY_BACKGROUNDS = 'backgrounds'
 export const backgrounds = {
-    title: "backgrounds",
+    title: "Backgrounds",
     description: "backgrounds Desc",
     byPlugin: {
       margin: {
