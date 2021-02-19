@@ -2,7 +2,6 @@ import React from "react";
 import { useRouter } from "next/router";
 import { ClassTable } from "components/ClassTable";
 import { pageConfig } from "constants/pageConfig";
-import Layout from "components/layout";
 
 const CategoryPage = () => {
   const router = useRouter();
@@ -24,10 +23,10 @@ const CategoryPage = () => {
   });
 
   return (
-    <Layout>
+    <>
       <h2>{categoryKey}</h2>
       <div>{ClassTables}</div>
-    </Layout>
+    </>
   );
 };
 CategoryPage.propTypes = {};

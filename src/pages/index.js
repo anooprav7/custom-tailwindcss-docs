@@ -9,14 +9,7 @@ import "tailwindcss/dist/tailwind.min.css";
 export default function Home() {
   return (
     <div className="">
-      <Head>
-        <title>Custom Tailwindcss Docs</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Layout>
         <main className="">The hOME</main>
-      </Layout>
     </div>
   );
 }

@@ -1,14 +1,11 @@
-import { memo, useState } from "react";
+import { useState, useContext } from "react";
 import _ from "lodash";
-// import plugin from "tailwindcss/lib/plugins/backgroundPosition";
-// import defaultTailwindConfig from "tailwindcss/stubs/defaultConfig.stub"
-import defaultTheme from "tailwindcss/defaultTheme";
+// import defaultTheme from "tailwindcss/defaultTheme";
 import resolveConfig from "tailwindcss/resolveConfig";
 import dlv from "dlv";
 import clsx from "clsx";
 import { copyToClipboard } from "utils";
-
-let defConfig = {};
+import { TailwindConfigContext } from "contexts";
 
 let normalizeProperties = function (input) {
   if (typeof input !== "object") return input;
@@ -23,33 +20,15 @@ let normalizeProperties = function (input) {
   }, {});
 };
 
-function getUtilities(plugin) {
+function getUtilities(plugin, tailwindConfig) {
   if (!plugin) return {};
 
-  const custom = {
-    fontSize: {
-      lgg: ["1.77rem", { lineHeight: "1.77rem" }]
-    },
-    spacing: {
-      1: "8px",
-      2: "12px",
-      3: "16px",
-      4: "24px",
-      5: "32px",
-      6: "48px"
-    }
-  };
-
-  const tailTheme = { ...defaultTheme, ...custom };
-
   const defaultConfig = resolveConfig({
-    theme: tailTheme,
     corePlugins: {
       float: false
-    }
+    },
+    ...tailwindConfig
   });
-
-  defConfig = defaultConfig;
 
   const utilities = {};
   plugin()({
@@ -121,12 +100,10 @@ export const ClassTable = ({
   pluginKey
 }) => {
   const [message, setMessage] = useState("");
-
+  const [tailwindConfig, ] = useContext(TailwindConfigContext);
+  
   const utilities = {};
-  Object.assign(utilities, getUtilities(plugin));
-  console.log({
-    defConfig
-  });
+  Object.assign(utilities, getUtilities(plugin, tailwindConfig));
 
   return (
     <div
@@ -136,7 +113,7 @@ export const ClassTable = ({
       <div level={2} id="class-reference" toc={true} className="relative">
         <span className="sr-only">Default class reference</span>
       </div>
-      <div>{`Plugin state ${defConfig?.corePlugins?.includes(pluginKey) ? "Enabled" : "Not Enabled"}`}</div>
+      <div>{`Plugin state ${tailwindConfig?.corePlugins?.includes(pluginKey) ? "Enabled" : "Not Enabled"}`}</div>
       <div
         className={clsx(
           "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch shadow-2xl rounded-md",

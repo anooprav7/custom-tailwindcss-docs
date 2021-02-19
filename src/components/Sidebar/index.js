@@ -33,7 +33,7 @@ const SideBar = () => {
       return (
         <li>
           <div
-            className="px-3 mb-3 lg:mb-3 uppercase tracking-wide font-semibold text-sm lg:text-xs text-gray-900 mt-8"
+            className="px-3 mb-3 lg:mb-3 uppercase tracking-wide font-semibold text-sm lg:text-xs text-gray-900 mt-12"
           >
             {categoryKey}
           </div>
@@ -44,7 +44,7 @@ const SideBar = () => {
   };
 
   return (
-    <aside className="w-96 mt-11 overflow-scroll">
+    <aside className="w-60 mt-11 overflow-scroll">
       <nav>
         <ul>{renderCategories()}</ul>
       </nav>
