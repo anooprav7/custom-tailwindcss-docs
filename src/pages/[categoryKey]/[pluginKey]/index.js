@@ -10,14 +10,14 @@ const PluginPage = () => {
 
   if (!data) return null;
 
-  const { byPlugin, allPlugins } = data;
+  const { byPlugin } = data;
   const plugin = byPlugin[pluginKey].plugin;
   const customProps = byPlugin?.[pluginKey]?.customProps || {}
 
   const ClassTables = (
     <>
-      <h4 id={pluginKey} className="my-3">
-        {pluginKey}
+      <h4 id={pluginKey} className="my-3 px-8">
+        Plugin key : {pluginKey}
       </h4>
       <ClassTable
         plugin={plugin}
@@ -30,7 +30,7 @@ const PluginPage = () => {
 
   return (
     <>
-      <h2>{categoryKey}</h2>
+      <h2 className="mt-4 px-8">{categoryKey}</h2>
       <div>{ClassTables}</div>
     </>
   );

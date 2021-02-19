@@ -110,15 +110,22 @@ export const ClassTable = ({
   Object.assign(utilities, getUtilities(plugin, tailwindConfig));
   const finalConfig = generateDefaultConfig(tailwindConfig);
 
+  const isPluginEnabled = finalConfig?.corePlugins?.includes(pluginKey);
+
+  const PluginState = <div className={clsx({
+    "inline-block py-1 px-3 border-green-400 border-2 rounded-full text-sm text-green-400": isPluginEnabled,
+    "inline-block py-1 px-3 border-red-400 border-2 rounded-full text-sm text-red-400": !isPluginEnabled
+  })}>{isPluginEnabled ? "Enabled" : "Disabled"}</div>
+
   return (
     <div
-      className="border-b border-gray-200 overflow-hidden relative p-8 rounded-md"
+      className="border-b border-gray-200 overflow-hidden relative px-8 py-1 rounded-md"
       id={id}
     >
       <div level={2} id="class-reference" toc={true} className="relative">
         <span className="sr-only">Default class reference</span>
       </div>
-      <div>{`Plugin state ${finalConfig?.corePlugins?.includes(pluginKey) ? "Enabled" : "Not Enabled"}`}</div>
+      <div className="mb-2">{PluginState}</div>
       <div
         className={clsx(
           "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch rounded-md border-2 border-gray-200",
