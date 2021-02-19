@@ -17,62 +17,62 @@ export const layout = {
   description: "Layout Desc",
   byPlugin: {
     boxSizing: {
-      title: "boxSizing",
+      title: "Box Sizing",
       description: "boxSizing desc",
       plugin: pluginboxSizing
     },
     display: {
-      title: "display",
+      title: "Display",
       description: "display desc",
       plugin: plugindisplay
     },
     float: {
-      title: "float",
+      title: "Float",
       description: "float desc",
       plugin: pluginfloat
     },
     clear: {
-      title: "clear",
+      title: "Clear",
       description: "clear desc",
       plugin: pluginclear
     },
     objectFit: {
-      title: "objectFit",
+      title: "Object Fit",
       description: "objectFit desc",
       plugin: pluginobjectFit
     },
     objectPosition: {
-      title: "objectPosition",
+      title: "Object Position",
       description: "objectPosition desc",
       plugin: pluginobjectPosition
     },
     overflow: {
-      title: "overflow",
+      title: "Overflow",
       description: "overflow desc",
       plugin: pluginoverflow
     },
     overscrollBehavior: {
-      title: "overscrollBehavior",
+      title: "Overscroll Behavior",
       description: "overscrollBehavior desc",
       plugin: pluginoverscrollBehavior
     },
     position: {
-      title: "position",
+      title: "Position",
       description: "position desc",
       plugin: pluginposition
     },
     inset: {
-      title: "inset",
+      title: "Top/Right/Bottom/Left",
       description: "inset desc",
       plugin: plugininset
     },
     visibility: {
-      title: "visibility",
+      title: "Visibility",
       description: "visibility desc",
       plugin: pluginvisibility
     },
     zIndex: {
-      title: "zIndex",
+      title: "Z Index",
       description: "zIndex desc",
       plugin: pluginzIndex
     }

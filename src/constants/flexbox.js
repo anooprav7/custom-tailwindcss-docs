@@ -11,32 +11,32 @@ export const flexbox = {
   description: "Flexbox Desc",
   byPlugin: {
     flexDirection: {
-      title: "flexDirection",
+      title: "Flex Direction",
       description: "flexDirection desc",
       plugin: pluginFlexDirection
     },
     flexGrow: {
-      title: "flexGrow",
+      title: "Flex Grow",
       description: "flexGrow desc",
       plugin: pluginFlexGrow
     },
     flexShrink: {
-      title: "flexShrink",
+      title: "FlexShrink",
       description: "flexShrink desc",
       plugin: pluginFlexShrink
     },
     flexWrap: {
-      title: "flexWrap",
+      title: "FlexWrap",
       description: "flexWrap desc",
       plugin: pluginFlexWrap
     },
     flex: {
-      title: "flex",
+      title: "Flex",
       description: "flex desc",
       plugin: pluginFlex
     },
     order: {
-      title: "order",
+      title: "Order",
       description: "order desc",
       plugin: pluginOrder
     }

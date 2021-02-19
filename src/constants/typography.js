@@ -42,71 +42,67 @@ export const typography = {
   description: "Typography Desc",
   byPlugin: {
     fontFamily: {
-      title: "fontFamily ",
+      title: "Font Family ",
       description: "fontFamily desc",
       plugin: pluginFontFamily
     },
     fontVariantNumberic: {
-      title: "FontVariantNumberic ",
+      title: "Font Variant Numberic ",
       description: "FontVariantNumberic desc",
       plugin: pluginFontVariantNumberic
     },
     fontSize: {
-      title: "fontSize ",
+      title: "Font Size ",
       description: "fontSize desc",
       plugin: pluginFontSize
     },
     fontSmoothing: {
-      title: "FontSmoothing ",
+      title: "Font Smoothing ",
       description: "FontSmoothing desc",
       plugin: pluginFontSmoothing
     },
     fontStyle: {
-      title: "FontStyle ",
+      title: "Font Style ",
       description: "FontStyle desc",
       plugin: pluginFontStyle
     },
     fontWeight: {
-      title: "FontWeight ",
+      title: "Font Weight ",
       description: "FontWeight desc",
       plugin: pluginFontWeight
     },
     letterSpacing: {
-      title: "letterSpacing ",
+      title: "Letter Spacing ",
       description: "letterSpacing desc",
       plugin: pluginletterSpacing
     },
     lineHeight: {
-      title: "lineHeight ",
+      title: "Line Height ",
       description: "lineHeight desc",
       plugin: pluginlineHeight
     },
     letterSpacing: {
-      title: "letterSpacing ",
+      title: "Letter Spacing ",
       description: "letterSpacing desc",
       plugin: pluginletterSpacing
     },
     listStyleType: {
-      title: "listStyleType ",
+      title: "List StyleType ",
       description: "listStyleType desc",
       plugin: pluginlistStyleType
     },
     listStylePosition: {
-      title: "listStylePosition ",
+      title: "List Style Position ",
       description: "listStylePosition desc",
       plugin: pluginlistStylePosition
     },
     placeholderColor: {
-      title: "placeholderColor ",
+      title: "Placeholder Color ",
       description: "placeholderColor desc",
       plugin: pluginplaceholderColor,
       customProps: {
         transformSelector: (selector) => ( 
           selector.split('::')[0].trim().replace(/^\./, '').replace(/\\/g, '')
-          // <>
-          //   {selector.split('::')[0].trim().replace(/^\./, '').replace(/\\/g, '')}
-          //   <span className="text-gray-500">::placeholder</span>
-          // </>
         ),
         preview: (css, { className }) => (
           <td

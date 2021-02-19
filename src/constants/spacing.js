@@ -20,7 +20,12 @@ export const spacing = {
       space: {
         title: "Space Between",
         description: "Space Between desc",
-        plugin: pluginSpaceBetween
+        plugin: pluginSpaceBetween,
+        customProps: {
+          transformSelector: (selector) => (
+              selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')
+          ),
+        }
       }
     },
     allPlugins: ["margin", "padding", "space"]

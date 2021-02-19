@@ -25,17 +25,20 @@ const SideBar = () => {
 
   const renderPlugins = (categoryKey, categoryData) => {
     const allPlugins = categoryData?.allPlugins || [];
+    const byPlugin = categoryData?.byPlugin || [];
+    
     return (
       <ul className="pl-4 mx-1 bg-gray-200">
         {allPlugins.map((pluginKey) => {
           const isPluginEnabled = finalConfig?.corePlugins?.includes(pluginKey);
+          const {title} = byPlugin[pluginKey];
           return (
             <li>
               <Link
                 href={`/${categoryKey}/${pluginKey}`}
               >
                 <a className="px-3 py-1 transition-colors duration-200 relative flex hover:text-blue-400 text-gray-700 text-sm justify-between">
-                  <span>{pluginKey}</span>
+                  <span>{title}</span>
                   <span
                     className={clsx({
                       "inline-block py-1 px-1 border-green-400 border-1 rounded-full text-green-400 text-xs": isPluginEnabled,

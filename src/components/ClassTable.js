@@ -119,7 +119,7 @@ export const ClassTable = ({
 
   return (
     <div
-      className="border-b border-gray-200 overflow-hidden relative px-8 py-1 rounded-md"
+      className="border-b border-gray-200 overflow-hidden relative px-8 pt-1 pb-8 rounded-md"
       id={id}
     >
       <div level={2} id="class-reference" toc={true} className="relative">
