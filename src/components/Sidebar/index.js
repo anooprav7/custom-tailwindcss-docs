@@ -33,7 +33,7 @@ const SideBar = () => {
           const isPluginEnabled = finalConfig?.corePlugins?.includes(pluginKey);
           const {title} = byPlugin[pluginKey];
           return (
-            <li>
+            <li key={pluginKey}>
               <Link
                 href={`/${categoryKey}/${pluginKey}`}
               >
@@ -60,7 +60,7 @@ const SideBar = () => {
     return allCategories.map((categoryKey, idx) => {
       const { title } = byCategory[categoryKey];
       return (
-        <li>
+        <li key={categoryKey}>
           <Link href={`/${categoryKey}`}>
             <a className="block px-3 mb-2 tracking-wide font-semibold text-sm text-gray-900 mt-5 hover:text-blue-500">
               {title}

@@ -47,9 +47,9 @@ export const typography = {
       description: "fontFamily desc",
       plugin: pluginFontFamily
     },
-    fontVariantNumberic: {
-      title: "Font Variant Numberic ",
-      description: "FontVariantNumberic desc",
+    fontVariantNumeric: {
+      title: "Font Variant Numeric ",
+      description: "fontVariantNumeric desc",
       plugin: pluginFontVariantNumberic
     },
     fontSize: {
@@ -176,7 +176,7 @@ export const typography = {
   },
   allPlugins: [
     "fontFamily",
-    "fontVariantNumberic",
+    "fontVariantNumeric",
     "fontSize",
     "fontSmoothing",
     "fontStyle",
