@@ -58,19 +58,19 @@ export const pageConfig = {
   pluginCategoryPages
 };
 
-let count = 0;
-const plugins = [];
+// let count = 0;
+// const plugins = [];
 
-pluginCategoryPages.allCategories.forEach(categoryKey => {
-  const {allPlugins} = pluginCategoryPages.byCategory[categoryKey]
-  count += allPlugins.length;
-  plugins.push(...allPlugins)
-})
+// pluginCategoryPages.allCategories.forEach(categoryKey => {
+//   const {allPlugins} = pluginCategoryPages.byCategory[categoryKey]
+//   count += allPlugins.length;
+//   plugins.push(...allPlugins)
+// })
 
-console.log({
-  count,
-  plugins
-})
+// console.log({
+//   count,
+//   plugins
+// })
 
 /*
 transition and animation

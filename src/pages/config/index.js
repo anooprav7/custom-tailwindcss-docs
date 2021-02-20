@@ -6,9 +6,9 @@ import { generateDefaultConfig } from "utils";
 export default function Config() {
   const [tailwindConfig] = useContext(TailwindConfigContext);
   const customConfig = generateDefaultConfig(tailwindConfig);
-  console.log({
-    plugins: customConfig.corePlugins
-  });
+  // console.log({
+  //   plugins: customConfig.corePlugins
+  // });
   return (
     <div className="mt-6">
       <main className="">Tailwindcss config</main>

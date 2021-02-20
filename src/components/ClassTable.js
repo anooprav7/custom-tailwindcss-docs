@@ -185,7 +185,7 @@ export const ClassTable = ({
                     )}
                     onClick={() => {
                       const text = transformSelector(selector);
-                      console.log({ text });
+                      // console.log({ text });
                       copyToClipboard(text);
                       setMessage(`${text} copied to clipboard`);
                       setTimeout(() => {
