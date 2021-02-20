@@ -119,12 +119,10 @@ export const ClassTable = ({
 
   return (
     <div
-      className="border-b border-gray-200 overflow-hidden relative px-8 pt-1 pb-8 rounded-md"
+      className="border-b border-gray-200 overflow-hidden relative px-8 pt-0 pb-4 rounded-md"
       id={id}
     >
-      <div level={2} id="class-reference" toc={true} className="relative">
-        <span className="sr-only">Default class reference</span>
-      </div>
+      <h3 className="italic my-2 bg-gray-200 px-3 py-2 rounded-md">Click to copy the CSS class</h3>
       <div className="mb-2">{PluginState}</div>
       <div
         className={clsx(

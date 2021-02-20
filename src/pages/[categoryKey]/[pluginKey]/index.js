@@ -16,7 +16,7 @@ const PluginPage = () => {
 
   const ClassTables = (
     <>
-      <h4 id={pluginKey} className="my-3 px-8">
+      <h4 id={pluginKey} className="mt-3 mb-0 px-8">
         Plugin key : {pluginKey}
       </h4>
       <ClassTable
