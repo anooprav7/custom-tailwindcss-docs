@@ -150,7 +150,7 @@ export const ClassTable = ({
               >
                 <div
                   className={clsx(
-                    "pb-2 pl-2 border-b border-gray-200 px-4 py-2 bg-gray-100",
+                    "border-b border-gray-200 px-4 py-2 bg-gray-100",
                     {
                       "pr-2": preview
                     }
@@ -161,7 +161,7 @@ export const ClassTable = ({
               </th>
               {preview && (
                 <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-                  <div className="pb-2 pl-2 border-b border-gray-200">
+                  <div className="px-4 py-2 border-b border-gray-200 bg-gray-100">
                     <span className="sr-only">Preview</span>&nbsp;
                   </div>
                 </th>

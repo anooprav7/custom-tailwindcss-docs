@@ -1,3 +1,5 @@
+import resolveConfig from "tailwindcss/resolveConfig";
+
 export const copyToClipboard = (str) => {
   const el = document.createElement("textarea");
   el.value = str;
@@ -9,3 +11,12 @@ export const copyToClipboard = (str) => {
   document.execCommand("copy");
   document.body.removeChild(el);
 };
+
+export function generateDefaultConfig (tailwindConfig) {
+  return resolveConfig({
+    corePlugins: {
+      float: false
+    },
+    ...tailwindConfig
+  });
+}

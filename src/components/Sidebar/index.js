@@ -26,9 +26,9 @@ const SideBar = () => {
   const renderPlugins = (categoryKey, categoryData) => {
     const allPlugins = categoryData?.allPlugins || [];
     const byPlugin = categoryData?.byPlugin || [];
-    
+
     return (
-      <ul className="pl-4 mx-1 bg-gray-200">
+      <ul className="pl-4 mx-1 bg-gray-100">
         {allPlugins.map((pluginKey) => {
           const isPluginEnabled = finalConfig?.corePlugins?.includes(pluginKey);
           const {title} = byPlugin[pluginKey];
@@ -75,7 +75,27 @@ const SideBar = () => {
   return (
     <aside className="w-60 mt-11 overflow-scroll flex-grow-0 flex-shrink-0 bg-gray-50">
       <nav>
-        <ul>{renderCategories()}</ul>
+        <ul>
+        <li>
+          <Link href={`/`}>
+            <a className="block px-3 mb-2 tracking-wide font-semibold text-sm text-gray-900 mt-5 hover:text-blue-500">
+              Home
+            </a>
+          </Link>
+          <ul className="pl-4 mx-1 bg-gray-100">
+          <li>
+              <Link
+                href={`/config`}
+              >
+                <a className="px-3 py-1 transition-colors duration-200 relative flex hover:text-blue-400 text-gray-700 text-sm justify-between">
+                  <span>Config</span>
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </li>
+          {renderCategories()}
+        </ul>
       </nav>
     </aside>
   );
