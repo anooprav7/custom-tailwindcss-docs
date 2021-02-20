@@ -33,10 +33,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Total number of plugins - 118
 
 ## TODO 
 ```
 1. animation, preflight, container plugin generation not possible
-2. Variants
 
 ```

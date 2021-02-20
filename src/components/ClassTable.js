@@ -108,6 +108,9 @@ export const ClassTable = ({
   const utilities = {};
   Object.assign(utilities, getUtilities(plugin, tailwindConfig));
   const finalConfig = generateDefaultConfig(tailwindConfig);
+  const variantsEnabled = finalConfig.variants[pluginKey];
+  // const Variants = finalConfig.variants[pluginKey].map( variant => <span className="mr-1 py-1 px-2 border-blue-600 border-2 rounded-md">{variant}</span>)
+  const variants = finalConfig.variants[pluginKey].join(", ")
 
   const isPluginEnabled = finalConfig?.corePlugins?.includes(pluginKey);
 
@@ -123,6 +126,7 @@ export const ClassTable = ({
     >
       <h3 className="italic my-2 bg-gray-200 px-3 py-2 rounded-md">Click to copy the CSS class</h3>
       <div className="mb-2">{PluginState}</div>
+      <div className="my-2">Variants : [ {variants} ]</div>
       <div
         className={clsx(
           "overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch rounded-md border-2 border-gray-200",
