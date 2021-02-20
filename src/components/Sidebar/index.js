@@ -28,7 +28,7 @@ const SideBar = () => {
     const byPlugin = categoryData?.byPlugin || [];
 
     return (
-      <ul className="pl-4 mx-1 bg-gray-100">
+      <ul className="pl-1 mx-1 bg-gray-100">
         {allPlugins.map((pluginKey) => {
           const isPluginEnabled = finalConfig?.corePlugins?.includes(pluginKey);
           const {title} = byPlugin[pluginKey];
@@ -73,7 +73,7 @@ const SideBar = () => {
   };
 
   return (
-    <aside className="w-60 mt-11 overflow-scroll flex-grow-0 flex-shrink-0 bg-gray-50">
+    <aside className="w-64 mt-11 overflow-scroll flex-grow-0 flex-shrink-0 bg-gray-50">
       <nav>
         <ul>
         <li>

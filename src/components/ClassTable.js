@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import _ from "lodash";
-// import defaultTheme from "tailwindcss/defaultTheme";
 import resolveConfig from "tailwindcss/resolveConfig";
 import dlv from "dlv";
 import clsx from "clsx";

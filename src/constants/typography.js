@@ -10,6 +10,7 @@ import pluginlistStyleType from "tailwindcss/lib/plugins/listStyleType";
 import pluginlistStylePosition from "tailwindcss/lib/plugins/listStylePosition";
 import pluginplaceholderColor from "tailwindcss/lib/plugins/placeholderColor";
 import pluginplaceholderOpacity from "tailwindcss/lib/plugins/placeholderOpacity";
+
 import plugintextAlign from "tailwindcss/lib/plugins/textAlign";
 import plugintextColor from "tailwindcss/lib/plugins/textColor";
 import plugintextOpacity from "tailwindcss/lib/plugins/textOpacity";
@@ -115,12 +116,62 @@ export const typography = {
       }
     },
     placeholderOpacity: {
-      title: "placeholderOpacity ",
+      title: "Placeholder Opacity ",
       description: "placeholderOpacity desc",
       plugin: pluginplaceholderOpacity,
       customProps: {
         transformSelector: (selector) => selector.split('::')[0].replace(/^\./, '').replace(/\\/g, ''),
       }
+    },
+    textAlign: {
+      title: "Text Align",
+      description: "textAlign desc",
+      plugin: plugintextAlign
+    },
+    textColor: {
+      title: "Text Color",
+      description: "textColor desc",
+      plugin: plugintextColor
+    },
+    textOpacity: {
+      title: "Text Opacity",
+      description: "textOpacity desc",
+      plugin: plugintextOpacity
+    },
+    textDecoration: {
+      title: "Text Decoration",
+      description: "textDecoration desc",
+      plugin: plugintextDecoration
+    },
+    textTransform: {
+      title: "Text Transform",
+      description: "textTransform desc",
+      plugin: plugintextTransform
+    },
+    textOverflow: {
+      title: "Text Overflow",
+      description: "textOverflow desc",
+      plugin: plugintextOverflow
+    },
+    textTransform: {
+      title: "Text Transform",
+      description: "textTransform desc",
+      plugin: plugintextTransform
+    },
+    verticalAlign: {
+      title: "Vertical Align",
+      description: "verticalAlign desc",
+      plugin: pluginverticalAlign
+    },
+    whitespace: {
+      title: "Whitespace",
+      description: "whitespace desc",
+      plugin: pluginwhitespace
+    },
+    wordBreak: {
+      title: "Word Break",
+      description: "wordBreak desc",
+      plugin: pluginwordBreak
     },
   },
   allPlugins: [
@@ -130,21 +181,20 @@ export const typography = {
     "fontSmoothing",
     "fontStyle",
     "fontWeight",
-
     "letterSpacing",
     "lineHeight",
     "listStyleType",
     "listStylePosition",
     "placeholderColor",
     "placeholderOpacity",
-    // "textAlign",
-    // "textColor",
-    // "textOpacity",
-    // "textDecoration",
-    // "textTransform",
-    // "textOverflow",
-    // "verticalAlign",
-    // "whitespace",
-    // "wordBreak"
+    "textAlign",
+    "textColor",
+    "textOpacity",
+    "textDecoration",
+    "textTransform",
+    "textOverflow",
+    "verticalAlign",
+    "whitespace",
+    "wordBreak"
   ]
 };
