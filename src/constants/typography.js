@@ -105,14 +105,14 @@ export const typography = {
         transformSelector: (selector) => ( 
           selector.split('::')[0].trim().replace(/^\./, '').replace(/\\/g, '')
         ),
-        preview: (css, { className }) => (
-          <td
-            className={`text-center font-medium text-base whitespace-nowrap align-middle ${className}`}
-            style={css}
-          >
-            <div className="w-16 mx-auto">Aa</div>
-          </td>
-        ),
+        // preview: (css, { className }) => (
+        //   <td
+        //     className={`text-center font-medium text-base whitespace-nowrap align-middle ${className}`}
+        //     style={css}
+        //   >
+        //     <div className="w-16 mx-auto">Aa</div>
+        //   </td>
+        // ),
       }
     },
     placeholderOpacity: {

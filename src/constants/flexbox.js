@@ -21,12 +21,12 @@ export const flexbox = {
       plugin: pluginFlexGrow
     },
     flexShrink: {
-      title: "FlexShrink",
+      title: "Flex Shrink",
       description: "flexShrink desc",
       plugin: pluginFlexShrink
     },
     flexWrap: {
-      title: "FlexWrap",
+      title: "Flex Wrap",
       description: "flexWrap desc",
       plugin: pluginFlexWrap
     },

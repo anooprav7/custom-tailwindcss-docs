@@ -1,9 +1,9 @@
+const colors = require('./colors')
+
 const tailwindConfig = {
   theme: {
     extend: {},
-    fontSize: {
-      lgg: ["1.77rem", { lineHeight: "1.77rem" }]
-    },
+    colors,
     // https://baseweb.design/guides/theming/#sizing
     spacing: {
       4: "4px",
@@ -21,7 +21,7 @@ const tailwindConfig = {
       64: "64px",
       96: "96px",
       128: "128px",
-      192: "192px",
+      192: "192px"
     },
     fontFamily: {
       sans: ["-apple-system", "BlinkMacSystemFont", "sans-serif"],
@@ -105,13 +105,16 @@ const tailwindConfig = {
           letterSpacing: "0.03333em",
           lineHeight: "1.66"
         }
-      ],
+      ]
     }
   },
   variants: {
     extend: {}
   },
-  plugins: []
+  corePlugins: {
+    float: false,
+    clear: false
+  }
 };
 
 export default tailwindConfig;
