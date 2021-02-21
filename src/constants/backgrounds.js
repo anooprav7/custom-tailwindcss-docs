@@ -19,13 +19,13 @@ export const backgrounds = {
       plugin: pluginbackgroundAttachment
     },
     backgroundClip: {
-      title: "Background Attachment",
-      description: "backgroundAttachment desc",
+      title: "Background Clip",
+      description: "backgroundClip desc",
       plugin: pluginbackgroundClip
     },
     backgroundColor: {
-      title: "Background Attachment",
-      description: "backgroundAttachment desc",
+      title: "Background Color",
+      description: "backgroundColor desc",
       plugin: pluginbackgroundColor
     },
     backgroundPosition: {
