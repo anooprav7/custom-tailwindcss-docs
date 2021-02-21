@@ -9,6 +9,13 @@ import Layout from "components/layout";
 import { TailwindConfigContext } from "contexts";
 import customTailwindcssConfig from 'constants/customTailwindConfig'
 
+import { ResizeObserver } from '@juggle/resize-observer'
+import 'intersection-observer'
+
+if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
+  window.ResizeObserver = ResizeObserver
+}
+
 const progress = new ProgressBar({
   size: 4,
   color: '#22D3EE',
