@@ -10,7 +10,7 @@ import { TailwindConfigContext } from "contexts";
 import customTailwindcssConfig from 'constants/customTailwindConfig'
 
 const progress = new ProgressBar({
-  size: 2,
+  size: 4,
   color: '#22D3EE',
   className: 'bar-of-progress',
   delay: 100,
